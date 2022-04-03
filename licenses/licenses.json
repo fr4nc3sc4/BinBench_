@@ -1,0 +1,188 @@
+{
+  "Apache": [
+    "argon2"
+  ],
+  "BSD": [
+    "bzip2",
+    "dhcpcd",
+    "hdparm",
+    "libarchive",
+    "libedit",
+    "libgssglue",
+    "libpcap",
+    "libssh2",
+    "libtirpc",
+    "pcre",
+    "pcre2",
+    "ppp",
+    "shadow",
+    "zstd"
+  ],
+  "GPL": [
+    "bash",
+    "cracklib",
+    "cryptsetup",
+    "dmraid",
+    "e2fsprogs",
+    "ed",
+    "fakeroot",
+    "gawk",
+    "gmp",
+    "gnupg",
+    "gpm",
+    "groff",
+    "iputils",
+    "iw",
+    "jfsutils",
+    "kbd",
+    "libksba",
+    "libnetfilter_conntrack",
+    "libnfnetlink",
+    "libnl",
+    "libpipeline",
+    "libtool",
+    "libunistring",
+    "libxcrypt",
+    "links",
+    "logrotate",
+    "lzo",
+    "man-db",
+    "mlocate",
+    "nano",
+    "nspr",
+    "nss",
+    "pacman",
+    "perl",
+    "ppp",
+    "pptpclient",
+    "procps-ng",
+    "psmisc",
+    "readline",
+    "reiserfsprogs",
+    "run-parts",
+    "sysfsutils",
+    "wpa_supplicant"
+  ],
+  "GPL2": [
+    "btrfs-progs",
+    "dosfstools",
+    "iproute2",
+    "iptables",
+    "keyutils",
+    "libcap",
+    "libidn2",
+    "libnftnl",
+    "lvm2",
+    "lz4",
+    "nettle",
+    "net-tools",
+    "nfsidmap",
+    "nfs-utils",
+    "nilfs-utils",
+    "pam",
+    "pciutils",
+    "traceroute",
+    "unixodbc",
+    "usbutils",
+    "util-linux",
+    "zstd"
+  ],
+  "GPL3": [
+    "bison",
+    "diffutils",
+    "findutils",
+    "gdbm",
+    "gnutls",
+    "grep",
+    "inetutils",
+    "less",
+    "libassuan",
+    "libtasn1",
+    "m4",
+    "make",
+    "tar",
+    "texinfo",
+    "thin-provisioning-tools",
+    "which"
+  ],
+  "LGPL": [
+    "acl",
+    "attr",
+    "e2fsprogs",
+    "libgcrypt",
+    "libgpg-error",
+    "libmicrohttpd",
+    "libmpc",
+    "libtasn1",
+    "man-db",
+    "mpfr",
+    "procps-ng",
+    "pth",
+    "sysfsutils",
+    "xfsprogs"
+  ],
+  "LGPL2.1": [
+    "dialog",
+    "efivar",
+    "gnutls",
+    "keyutils",
+    "libcap-ng",
+    "libmnl",
+    "libnsl",
+    "libusb",
+    "lvm2",
+    "nilfs-utils",
+    "npth",
+    "unixodbc"
+  ],
+  "LGPL3": [
+    "gmp",
+    "libidn2"
+  ],
+  "MIT": [
+    "curl",
+    "e2fsprogs",
+    "libffi",
+    "libnghttp2",
+    "ncurses"
+  ],
+  "MPL": [
+    "nspr",
+    "nss"
+  ],
+  "PerlArtistic": [
+    "perl"
+  ],
+  "custom": [
+    "db",
+    "file",
+    "flex",
+    "krb5",
+    "libsasl",
+    "openldap",
+    "popt",
+    "rpcbind",
+    "sudo",
+    "zlib"
+  ],
+  "custom:BSD": [
+    "cronie",
+    "ldns",
+    "openssl"
+  ],
+  "custom:CC0": [
+    "argon2"
+  ],
+  "custom:ISC": [
+    "pkgconf"
+  ],
+  "custom:Public Domain": [
+    "sqlite"
+  ],
+  "custom:ex": [
+    "vi"
+  ],
+  "custom:icu": [
+    "icu"
+  ]
+}

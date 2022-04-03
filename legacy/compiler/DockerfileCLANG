@@ -1,0 +1,13 @@
+FROM clangbuiltlinux/ubuntu:llvm12-latest
+
+#FOR CLANG 12
+RUN update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-12 100
+RUN update-alternatives --install /usr/bin/clang clang /usr/bin/clang-12 100
+
+RUN update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang++-12 100
+RUN update-alternatives --install /usr/bin/cc cc /usr/bin/clang-12 100
+
+# BUILD:
+# docker build -t docker-clang-12 --file DockerfileCLANG .
+# RUN:
+# docker run -it docker-clang-12
