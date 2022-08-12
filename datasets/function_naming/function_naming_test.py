@@ -2,6 +2,8 @@ import multiprocessing
 import json
 import os
 import random
+from re import finditer
+from wordsegment import load, segment
 
 # Store the dataset files in the current directory.
 work_dir = os.path.dirname(os.path.realpath(__file__))
@@ -17,6 +19,17 @@ opts = ['O0', 'O1', 'O2', 'O3']
 # Number of generated datapoints
 num_datapoints = 10000
 
+def flatten_array_name(pretokenized_name):
+	# flatten the array of the pretokenized name
+    return [tok for sublst in pretokenized_name for tok in sublst]
+
+def camel_case_split(func_name):
+	match = finditer('.+?(?:(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])|$)', func_name)
+	return [m.group(0) for m in match]
+
+def snake_case(func_name):
+	match = list(filter(None,func_name.split("_")))
+	return match
 
 def pick_random_function(package):
 	compiler_idx = random.randint(0, len(compilers) - 1)
@@ -35,13 +48,21 @@ def make_blind_entry(datapoint_id):
 	return {
 		'datapoint_id': datapoint_id,
 		'name': [],
+		'splitted_name': []
 	}
 
 
 def make_secret_entry(datapoint_id, json_function):
+	name = load()
+	name = camel_case_split(json_function['name'])
+	name = [snake_case(splt) for splt in name]
+	name = (flatten_array_name(name))
+	name = flatten_array_name([segment(word) for word in name])
+
 	return {
 		'datapoint_id': datapoint_id,
-		'name': json_function['name']
+		'name': json_function['name'],
+		'splitted_name': name
 	}
 
 
@@ -50,9 +71,9 @@ def make_index_entry(json_function):
 
 
 if __name__ == '__main__':
-	blind_dataset_name = 'function_naming-blind.jsonl'
-	secret_dataset_name = 'function_naming-secret.jsonl'
-	index_name = 'function_naming-index.json'
+	blind_dataset_name = 'function_naming-blind_new.jsonl'
+	secret_dataset_name = 'function_naming-secret_new.jsonl'
+	index_name = 'function_naming-index_new.json'
 
 	blind_dataset = open(os.path.join(work_dir, blind_dataset_name), 'w+')
 	secret_dataset = open(os.path.join(work_dir, secret_dataset_name), 'w+')
@@ -68,7 +89,7 @@ if __name__ == '__main__':
 
 	for package in packages:
 		try:
-			while function_per_package < max_num_function_per_package:
+			while function_per_package < max_num_function_per_package:				
 				function = pick_random_function(package)
 				if function not in selected_functions:
 					selected_functions.add(function)
@@ -79,6 +100,7 @@ if __name__ == '__main__':
 						blind_entry = make_blind_entry(datapoint_id)
 						secret_entry = make_secret_entry(datapoint_id, json_function)
 						index[datapoint_id] = make_index_entry(json_function)
+						print(json_function['name'], secret_entry)
 
 						json.dump(blind_entry, blind_dataset, sort_keys=True)
 						json.dump(secret_entry, secret_dataset, sort_keys=True)
@@ -90,7 +112,7 @@ if __name__ == '__main__':
 
 			function_per_package = 0
 		except Exception as e:
-			print("[ERROR]", str(e))
+				print(str(e), "[ERROR] \n...continue...\n")
 
 	json.dump(index, index_file, sort_keys=True)
 
