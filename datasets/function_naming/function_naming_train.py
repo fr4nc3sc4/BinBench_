@@ -24,10 +24,6 @@ def flatten_array_name(pretokenized_name):
 	# flatten the array of the pretokenized name
     return [tok for sublst in pretokenized_name for tok in sublst]
 
-def camel_case_split(func_name):
-	match = finditer('.+?(?:(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])|$)', func_name)
-	return [m.group(0) for m in match]
-
 def snake_case(func_name):
 	match = list(filter(None,func_name.split("_")))
 	return match
@@ -47,9 +43,7 @@ def pick_random_function(package):
 
 def make_secret_entry(datapoint_id, json_function):
 	name = load()
-	name = camel_case_split(json_function['name'])
-	name = [snake_case(splt) for splt in name]
-	name = (flatten_array_name(name))
+	name = snake_case(json_function['name'])
 	name = flatten_array_name([segment(word) for word in name])
 
 	return {
