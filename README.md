@@ -47,6 +47,8 @@ python3 ./driver.py -j <num_parallel_processes>
 To facilitate the evaluation of your model, we provide a script with the metrics discussed in our paper.
 
 USAGE:
+```
 python datasets/utilities/evaluation_script.py ground_truth_file.jsonl user_predictions_file.jsonl task_name
+```
 
 Where task_name can be: function_naming, compiler_provenance, binary_similarity, function_search, signature_recovery
