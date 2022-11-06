@@ -1,5 +1,6 @@
 # BinBench
 BinBench is a benchmark for the evaluation of machine learning solutions applied to binary analisys.
+<a href="https://zenodo.org/badge/latestdoi/476326412"><img src="https://zenodo.org/badge/476326412.svg" alt="DOI"></a>
 
 ## Generating Docker images
 Binbench uses docker containers to compile arc linux packages. Before starting the compilation process,
